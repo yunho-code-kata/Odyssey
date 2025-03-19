@@ -6,10 +6,10 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 
 @ConfigurationPropertiesScan
 @SpringBootApplication
-public class OdysseyCustomerApplication {
+public class OdysseyAdminApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(OdysseyCustomerApplication.class, args);
+        SpringApplication.run(OdysseyAdminApplication.class, args);
     }
 
 }
