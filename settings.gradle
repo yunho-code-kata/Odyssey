@@ -1,1 +1,15 @@
 rootProject.name = 'Odyssey'
+
+
+include 'odyssey-app'
+include 'odyssey-app:odyssey-app-customer'
+include 'odyssey-app:odyssey-app-admin'
+
+include 'odyssey-domains'
+
+include 'odyssey-clients'
+
+include 'odyssey-common'
+
+include 'odyssey-infra'
+
