@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' apply (false)
+    id 'io.spring.dependency-management' apply (false)
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+
+allprojects {
+    group = "${projectGroup}"
+    version = "${applicationVersion}"
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    dependencies {
+
+
+        tasks.named('test') {
+            useJUnitPlatform()
+        }
+    }
+}
