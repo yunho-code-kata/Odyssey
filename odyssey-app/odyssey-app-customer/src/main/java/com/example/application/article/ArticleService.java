@@ -1,7 +1,7 @@
 package com.example.application.article;
 
 import com.example.application.article.request.ArticleAppendServiceRequest;
-import com.example.article.ArticleManager;
+import com.example.service.ArticleManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

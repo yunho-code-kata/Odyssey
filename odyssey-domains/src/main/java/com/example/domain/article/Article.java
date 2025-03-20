@@ -1,4 +1,4 @@
-package com.example.article;
+package com.example.domain.article;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
