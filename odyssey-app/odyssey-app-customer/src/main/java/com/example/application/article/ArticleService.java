@@ -1,6 +1,7 @@
 package com.example.application.article;
 
 import com.example.application.article.request.ArticleAppendServiceRequest;
+import com.example.application.article.request.ArticleModifyServiceRequest;
 import com.example.service.ArticleManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,5 +14,9 @@ public class ArticleService {
 
     public Long append(final ArticleAppendServiceRequest request) {
         return articleManager.appendArticle(request.title(), request.content());
+    }
+
+    public void modify(final ArticleModifyServiceRequest request) {
+        articleManager.modifyArticle(request.id(), request.title(), request.content());
     }
 }
