@@ -11,7 +11,6 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
@@ -43,8 +42,7 @@ public class ArticleSnapShot {
     @JoinColumn(name = "article_id")
     private Article article;
 
-    @Builder
-    public ArticleSnapShot(final String title, final String content, final Article article) {
+    private ArticleSnapShot(final String title, final String content, final Article article) {
         Assert.notNull(title, "title must not be null");
         Assert.notNull(content, "content must not be null");
         Assert.notNull(article, "article must not be null");
@@ -52,5 +50,9 @@ public class ArticleSnapShot {
         this.title = title;
         this.content = content;
         this.article = article;
+    }
+
+    public static ArticleSnapShot create(final String title, final String content, final Article article) {
+        return new ArticleSnapShot(title, content, article);
     }
 }

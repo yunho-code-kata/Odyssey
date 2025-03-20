@@ -10,6 +10,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import lombok.Builder;
 import lombok.Getter;
@@ -39,7 +40,14 @@ public class Article {
         this.deletedAt = null;
     }
 
-    public void update(ArticleSnapShot articleSnapShot) {
+    public void addSnapshot(ArticleSnapShot articleSnapShot) {
         this.articleSnapShots.add(articleSnapShot);
+    }
+
+    public ArticleSnapShot getLastedArticle() {
+        return this.articleSnapShots.stream()
+                                    .sorted(Comparator.comparing(ArticleSnapShot::getCreatedAt).reversed())
+                                    .findFirst()
+                                    .orElseThrow();
     }
 }
